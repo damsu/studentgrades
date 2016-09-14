@@ -140,5 +140,12 @@ exports.getAllGradesByStudentId = function (id) {
             return grade;
         }
     });
+
+exports.getGradeByGradeId = function (userid, gradeid) {
+        return gradeData.filter(function (grade) {
+            if (grade.studentId == userid && grade.id == gradeid) {
+                return grade;
+            }
+        });
     //return gradeData;
 }

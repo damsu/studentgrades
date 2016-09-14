@@ -14,10 +14,12 @@ router.route('/students/:userid/grades')
     .get(function (req, res, next) {
         // the id parameter is available at req.params        
         res.json(data.getAllGradesByStudentId(req.params.userid));
-    })
+    });
 
-    .delete(function (req, res, next) {
-        res.send("delete grade");
+router.route('/students/:userid/grades/:gradeid')
+    .get(function (req, res, next) {
+        // the id parameter is available at req.params        
+        res.json(data.getGradeByGradeId(req.params.userid, req.params.gradeid));
     });
 
 module.exports = router;
