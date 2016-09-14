@@ -25,58 +25,30 @@ var courseData = [{
                 }];
 
 
-//var gradeData = [{
-//                    id: 1,
-//                    studentId: 1,
-//                    courseId: 1,
-//                    grade: 2
-//},
-//                {
-//                    id: 2,
-//                    studentId: 1,
-//                    courseId: 2,
-//                    grade: 5
-//                },
-//                {
-//                    id: 3,
-//                    studentId: 2,
-//                    courseId: 1,
-//                    grade: 4
-//                },
-//                {
-//                    id: 4,
-//                    studentId: 2,
-//                    courseId: 2,
-//                    grade: 3
-//                }];
-
-
-
-
-// Define some book data
-//var bookData = [{
-//                    id: 22,
-//                    name: "test book 1",
-//                    author: 25
-//                },
-//                {
-//                    id: 45,
-//                    name: "test book 2",
-//                    author: 445
-//                }];
-
-
-//// Define some author data
-//var authorData = [
-//    {
-//        id: 25,
-//        name: "John Doe"
-//    },
-//    {
-//        id: 45,
-//        name: "Max Tester"
-//    }
-//];                
+var gradeData = [{
+                    id: 1,
+                    studentId: 1,
+                    courseId: 1,
+                    grade: 2
+},
+                {
+                    id: 2,
+                    studentId: 1,
+                    courseId: 2,
+                    grade: 5
+                },
+                {
+                    id: 3,
+                    studentId: 2,
+                    courseId: 1,
+                    grade: 4
+                },
+                {
+                    id: 4,
+                    studentId: 2,
+                    courseId: 2,
+                    grade: 3
+                }];           
 
 
 // Public functions for other modules to use
@@ -162,64 +134,10 @@ exports.updateCourseById = function (id, newcontent) {
 
 
 //Grades
-//exports.getAllGradesByStudentId = function (id) {
-
-//    //var gradeData = [];
-//    //var iteration = 0;
-//    //for (var i = 0; i < studentData.length; i++) {
-//    //    for (var j = 0; j < courseData.length; j++) {
-
-//    //        gradeData.push({
-//    //            id: iteration,
-//    //            student_ID: studentData[i].id,
-//    //            course_ID: courseData[j].id,
-//    //            grade: 0
-//    //        });
-//    //        iteration++;
-
-//    //    }
-//    //}
-//    return gradeData.filter(function (grade) {
-//        if (grade.studentId == id) {
-//            return grade;
-//        }
-//    });
-//}
-
-////exports.getGradeById = function (id) {
-////    return gradeData.filter(function (grade) {
-////        if (grade.id == id) {
-////            return grade;
-////        }
-////    });
-////}
-
-//exports.addGrade = function (grade) {
-//    gradeData.push(grade);
-//}
-
-// Public functions for other modules to use
-//exports.getAllBooks = function() 
-//{
-//    return bookData;
-//}
-
-//exports.getBookById = function(id)
-//{
-//    return bookData.filter(function(book){
-//        if(book.id == id)
-//        {
-//            return book;
-//        }
-//    });
-//}
-
-//exports.addBook = function(book)
-//{
-//    bookData.push(book);
-//}
-
-//exports.getAuthors = function()
-//{
-//    return authorData;
-//}
+exports.getAllGradesByStudentId = function (id) {
+    return gradeData.filter(function (grade) {
+        if (grade.studentId == id) {
+            return grade;
+        }
+    });
+}
