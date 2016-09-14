@@ -1,12 +1,12 @@
 // Define some student data
 var studentData = [{
-                    id: 1,
+                    id: 0,
                     name: "JSon Derulo",
                     address: "21 Jump Street",
                     group: "DIN22SP"
 },
                 {
-                    id: 2,
+                    id: 1,
                     name: "John Bon Java",
                     address: "22 Jump Street",
                     group: "DIN23SN"
@@ -14,37 +14,37 @@ var studentData = [{
 
 // Define some course data
 var courseData = [{
-                    id: 1,
+                    id: 0,
                     name: "Java For Noobs",
                     description: "You'all need to learn some Java yo, this course will help yo"
 },
                 {
-                    id: 2,
+                    id: 1,
                     name: "GoT History",
                     description: "Join to learn all about the god of tits and wine."
                 }];
 
 // Define some grade data
 var gradeData = [{
-                    id: 1,
+                    id: 0,
                     studentId: 1,
                     courseId: 1,
                     grade: 2
 },
                 {
-                    id: 2,
+                    id: 1,
                     studentId: 1,
                     courseId: 2,
                     grade: 5
                 },
                 {
-                    id: 3,
+                    id: 2,
                     studentId: 2,
                     courseId: 1,
                     grade: 4
                 },
                 {
-                    id: 4,
+                    id: 3,
                     studentId: 2,
                     courseId: 2,
                     grade: 3
@@ -113,7 +113,13 @@ exports.getCourseById = function (id) {
 }
 //-----------------------------------------------------------------------------------------
 exports.addCourse = function (course) {
-    courseData.push(course);
+    var courseid = courseData.length;
+    var newcourse = {}
+    //merging with courseId and course object from Postman
+    for (var key in courseid) newcourse[key] = courseid[key];
+    for (var key in course) newcourse[key] = course[key];
+    //adding new course
+    courseData.push(newcourse);
 }
 //-----------------------------------------------------------------------------------------
 exports.removeCourseById = function (id) {
