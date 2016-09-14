@@ -116,8 +116,8 @@ exports.updateStudentById = function (id, newcontent) {
             obj_position = index;
         }
     });
-    studentData.splice(obj_position, 1);
-    studentData.splice(obj_position, 0, newcontent);
+    //studentData.splice(obj_position, 1);
+    studentData.splice(obj_position, 1, newcontent);
 }
 
 //Courses
@@ -155,8 +155,8 @@ exports.updateCourseById = function (id, newcontent) {
             obj_position = index;
         }
     });
-    courseData.splice(obj_position, 1);
-    courseData.splice(obj_position, 0, newcontent);
+    //courseData.splice(obj_position, 1);
+    courseData.splice(obj_position, 1, newcontent);
 }
 
 
