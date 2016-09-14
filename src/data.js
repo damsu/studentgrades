@@ -173,7 +173,7 @@ exports.removeGradeById = function (id) {
 //-----------------------------------------------------------------------------------------
 exports.addGrade = function (id, grade) {
     //values that are not updatable
-    var autofill = { "id": 3, "studentId": id };
+    var autofill = { "id": gradeData.length, "studentId": id };
     //final object
     var newgrade = {};
     //merging with courseId and grade from Postman
