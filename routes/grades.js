@@ -14,7 +14,12 @@ router.route('/students/:userid/grades')
     .get(function (req, res, next) {
         // the id parameter is available at req.params        
         res.json(data.getAllGradesByStudentId(req.params.userid));
-    });
+    })
+
+.post(function (req, res, next) {
+    // the id parameter is available at req.params        
+    res.json(data.addGrade(req.params.userid, req.body));
+});
 
 router.route('/students/:userid/grades/:gradeid')
     .get(function (req, res, next) {

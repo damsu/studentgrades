@@ -160,3 +160,11 @@ exports.removeGradeById = function (id) {
     });
     gradeData.splice(obj_position, 1);
 }
+//Works by posting a json object containing only "courseId" and "grade" values
+exports.addGrade = function (id, grade) {
+    var autofill = { "id": 3, "studentId": id };
+    var newgrade = {};
+    for (var key in autofill) newgrade[key] = autofill[key];
+    for (var key in grade) newgrade[key] = grade[key];
+    gradeData.push(newgrade);
+}
