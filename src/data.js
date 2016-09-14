@@ -119,7 +119,7 @@ exports.updateStudentById = function (id, newcontent) {
         }
     });
     //replacement of object
-    studentData.splice(obj_position, 1, newcontent);
+    studentData.splice(obj_position, 1, newstudent);
 }
 ///////////////////////////////////////////////////////////////////////////////////////////
 //Courses
