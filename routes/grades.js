@@ -10,7 +10,7 @@ var router = express.Router();
 // Declare routes
 //
 
-router.route('/students/:id/grades')
+router.route('/students/1/grades')
     //.get(function (req, res, next) {
     //    // the id parameter is available at req.params        
     //    res.json(data.getAllGradesByStudentId(req.params.id));
