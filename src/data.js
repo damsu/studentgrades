@@ -24,7 +24,7 @@ var courseData = [{
                     description: "Join to learn all about the god of tits and wine."
                 }];
 
-
+// Define some grade data
 var gradeData = [{
                     id: 1,
                     studentId: 1,
@@ -53,12 +53,14 @@ var gradeData = [{
 
 // Public functions for other modules to use
 
-
+///////////////////////////////////////////////////////////////////////////////////////////
 //Students
+///////////////////////////////////////////////////////////////////////////////////////////
+
 exports.getAllStudents = function () {
     return studentData;
 }
-
+//-----------------------------------------------------------------------------------------
 exports.getStudentById = function (id) {
     return studentData.filter(function (student) {
         if (student.id == id) {
@@ -66,37 +68,42 @@ exports.getStudentById = function (id) {
         }
     });
 }
-
+//-----------------------------------------------------------------------------------------
 exports.addStudent = function (student) {
     studentData.push(student);
 }
-
+//-----------------------------------------------------------------------------------------
 exports.removeStudentById = function (id) {
+    //location of object in array
     var obj_position = null;
     studentData.forEach(function (student, index) {
         if (student.id == id) {
             obj_position = index;
         }
     });
+    //removing of object
     studentData.splice(obj_position, 1);
 }
-
+//-----------------------------------------------------------------------------------------
 exports.updateStudentById = function (id, newcontent) {
+    //location of object in array
     var obj_position = null;
     studentData.forEach(function (student, index) {
         if (student.id == id) {
             obj_position = index;
         }
     });
-    //studentData.splice(obj_position, 1);
+    //replacement of object
     studentData.splice(obj_position, 1, newcontent);
 }
-
+///////////////////////////////////////////////////////////////////////////////////////////
 //Courses
+///////////////////////////////////////////////////////////////////////////////////////////
+
 exports.getAllCourses = function () {
     return courseData;
 }
-
+//-----------------------------------------------------------------------------------------
 exports.getCourseById = function (id) {
     return courseData.filter(function (course) {
         if (course.studentId == id) {
@@ -104,36 +111,38 @@ exports.getCourseById = function (id) {
         }
     });
 }
-
+//-----------------------------------------------------------------------------------------
 exports.addCourse = function (course) {
     courseData.push(course);
 }
-
-
+//-----------------------------------------------------------------------------------------
 exports.removeCourseById = function (id) {
+    //location of object in array
     var obj_position = null;
     courseData.forEach(function (course, index) {
         if (course.id == id) {
             obj_position = index;
         }
     });
+    //removing of object
     courseData.splice(obj_position, 1);
 }
-
+//-----------------------------------------------------------------------------------------
 exports.updateCourseById = function (id, newcontent) {
+    //location of object in array
     var obj_position = null;
     courseData.forEach(function (course, index) {
         if (course.id == id) {
             obj_position = index;
         }
     });
-    //courseData.splice(obj_position, 1);
+    //replacement of object
     courseData.splice(obj_position, 1, newcontent);
 }
-
-
-
+///////////////////////////////////////////////////////////////////////////////////////////
 //Grades
+///////////////////////////////////////////////////////////////////////////////////////////
+
 exports.getAllGradesByStudentId = function (id) {
     return gradeData.filter(function (grade) {
         if (grade.studentId == id) {
@@ -141,44 +150,54 @@ exports.getAllGradesByStudentId = function (id) {
         }
     });
 }
-
+//-----------------------------------------------------------------------------------------
 exports.getGradeByGradeId = function (userid, gradeid) {
         return gradeData.filter(function (grade) {
             if (grade.studentId == userid && grade.id == gradeid) {
                 return grade;
             }
         });
-    //return gradeData;
 }
-
+//-----------------------------------------------------------------------------------------
 exports.removeGradeById = function (id) {
+    //location of object in array
     var obj_position = null;
     gradeData.forEach(function (grade, index) {
         if (grade.id == id) {
             obj_position = index;
         }
     });
+    //removing of object
     gradeData.splice(obj_position, 1);
 }
-//Works by posting a json object containing only "courseId" and "grade" values
+//-----------------------------------------------------------------------------------------
 exports.addGrade = function (id, grade) {
+    //values that are not updatable
     var autofill = { "id": 3, "studentId": id };
+    //final object
     var newgrade = {};
+    //merging with courseId and grade from Postman
     for (var key in autofill) newgrade[key] = autofill[key];
     for (var key in grade) newgrade[key] = grade[key];
+    //adding new object
     gradeData.push(newgrade);
 }
-
+//-----------------------------------------------------------------------------------------
 exports.updateGradeById = function (userid, gradeid, grade) {
+    //values that are not updatable
     var autofill = { "id": gradeid, "studentId": userid };
+    //final object
     var newgrade = {};
+    //merging with courseId and grade from Postman
     for (var key in autofill) newgrade[key] = autofill[key];
     for (var key in grade) newgrade[key] = grade[key];
+    //location of object in array
     var obj_position = null;
     gradeData.forEach(function (grade, index) {
         if (grade.id == gradeid) {
             obj_position = index;
         }
     });
+    //replacement of object
     gradeData.splice(obj_position, 1, newgrade);
 }

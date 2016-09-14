@@ -11,29 +11,25 @@ var router = express.Router();
 //
 
 router.route('/students/:userid/grades')
-    .get(function (req, res, next) {
-        // the id parameter is available at req.params        
+    .get(function (req, res, next) {      
         res.json(data.getAllGradesByStudentId(req.params.userid));
     })
 
-.post(function (req, res, next) {
-    // the id parameter is available at req.params        
-    res.json(data.addGrade(req.params.userid, req.body));
+.post(function (req, res, next) {    
+    res.json(data.addGrade(req.params.userid, req.body)); //testable by sending object with courseId and grade
 });
 
 router.route('/students/:userid/grades/:gradeid')
-    .get(function (req, res, next) {
-        // the id parameter is available at req.params        
+    .get(function (req, res, next) {       
         res.json(data.getGradeByGradeId(req.params.userid, req.params.gradeid));
     })
 
-    .delete(function (req, res, next) {
-    // the id parameter is available at req.params        
+    .delete(function (req, res, next) {      
     res.json(data.removeGradeById(req.params.gradeid));
     })
 
     .put(function (req, res, next) {
-    res.json(data.updateGradeById(req.params.userid, req.params.gradeid, req.body));
+        res.json(data.updateGradeById(req.params.userid, req.params.gradeid, req.body)); //testable by sending object with courseId and grade
     res.send("update grade");
 });
 
