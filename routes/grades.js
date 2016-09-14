@@ -11,13 +11,16 @@ var router = express.Router();
 //
 
 router.route('/students/:id/grades')
-    .get(function (req, res, next) {
-        // the id parameter is available at req.params        
-        res.json(data.getAllGradesByStudentId(req.params.id));
-    })
+    //.get(function (req, res, next) {
+    //    // the id parameter is available at req.params        
+    //    res.json(data.getAllGradesByStudentId(req.params.id));
+    //})
 
-    .delete(function (req, res, next) {
-        res.send("delete grade");
-    });
+    //.delete(function (req, res, next) {
+    //    res.send("delete grade");
+//});
+.get(function (req, res) {
+    res.send('testing route');
+})
 
 module.exports = router;
