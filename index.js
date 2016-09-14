@@ -19,7 +19,7 @@ app.use(bodyParser.json());
 //app.use('/api', authors);
 app.use('/api', students);
 app.use('/api', courses);
-//app.use('/api/students/:id', grades);
+app.use('/api', grades);
 
 // Simple hello world route
 app.get('/', function(req, res) {
