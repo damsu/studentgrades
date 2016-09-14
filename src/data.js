@@ -113,7 +113,7 @@ exports.getCourseById = function (id) {
 }
 //-----------------------------------------------------------------------------------------
 exports.addCourse = function (course) {
-    var courseid = courseData.length;
+    var courseid = { "id": courseData.length };
     var newcourse = {};
     //merging with courseId and course object from Postman
     for (var key in courseid) newcourse[key] = courseid[key];
