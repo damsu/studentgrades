@@ -135,10 +135,10 @@ exports.updateCourseById = function (id, newcontent) {
 
 //Grades
 exports.getAllGradesByStudentId = function (id) {
-    //return gradeData.filter(function (grade) {
-    //    if (grade.studentId == id) {
-    //        return grade;
-    //    }
-    //});
-    return gradeData;
+    return gradeData.filter(function (grade) {
+        if (grade.studentId == id) {
+            return grade;
+        }
+    });
+    //return gradeData;
 }
