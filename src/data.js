@@ -99,7 +99,7 @@ exports.getAllCourses = function () {
 
 exports.getCourseById = function (id) {
     return courseData.filter(function (course) {
-        if (course.id == id) {
+        if (course.studentId == id) {
             return course;
         }
     });
@@ -135,8 +135,13 @@ exports.updateCourseById = function (id, newcontent) {
 
 //Grades
 exports.getAllGradesByStudentId = function (id) {
-    return gradeData.filter(function (grade) {
-        if (grade.id == id) {
+    //return gradeData.filter(function (grade) {
+    //    if (grade.id == id) {
+    //        return grade;
+    //    }
+    //});
+    gradeData.forEach(function (grade) {
+        if (grade.studentId == id) {
             return grade;
         }
     });
