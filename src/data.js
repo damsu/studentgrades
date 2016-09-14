@@ -50,6 +50,18 @@ var gradeData = [{
                     grade: 3
                 }];           
 
+// Function for calculating the next best ID for an array
+
+newIdFor = function (array) {
+    highestvalue = 0;
+    array.forEach(function (array, index) {
+        if (array.id > highestvalue) {
+            highestvalue = array.id;
+        }
+    });
+    var newID = highestvalue + 1;
+    return newID;
+}
 
 // Public functions for other modules to use
 
@@ -113,7 +125,7 @@ exports.getCourseById = function (id) {
 }
 //-----------------------------------------------------------------------------------------
 exports.addCourse = function (course) {
-    var courseid = { "id": courseData.length };
+    var courseid = { "id": newIdFor(courseData) };
     var newcourse = {};
     //merging with courseId and course object from Postman
     for (var key in courseid) newcourse[key] = courseid[key];
@@ -179,7 +191,7 @@ exports.removeGradeById = function (id) {
 //-----------------------------------------------------------------------------------------
 exports.addGrade = function (id, grade) {
     //values that are not updatable
-    var autofill = { "id": gradeData.length, "studentId": id };
+    var autofill = { "id": newIdFor(gradeData), "studentId": id };
     //final object
     var newgrade = {};
     //merging with courseId and grade from Postman
