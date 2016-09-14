@@ -38,6 +38,7 @@ router.route('/courses/:id')
     })
     .put(function (req, res, next) {
         res.json(data.updateCourseById(req.params.id, req.body));
+        res.send("update course");
 });
 
 module.exports = router;

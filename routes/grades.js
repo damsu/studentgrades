@@ -2,9 +2,6 @@ var data = require('../src/data');
 var express = require('express');
 var router = express.Router();
 
-//
-// implement functionality
-//
 
 //
 // Declare routes
@@ -25,7 +22,8 @@ router.route('/students/:userid/grades/:gradeid')
     })
 
     .delete(function (req, res, next) {      
-    res.json(data.removeGradeById(req.params.gradeid));
+        res.json(data.removeGradeById(req.params.gradeid));
+        res.send("delete grade");
     })
 
     .put(function (req, res, next) {

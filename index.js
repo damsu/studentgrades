@@ -1,8 +1,6 @@
 
 var express = require('express');
 var bodyParser = require('body-parser');
-//var books = require('./routes/books.js');
-//var authors = require('./routes/authors.js');
 var students = require('./routes/students.js');
 var courses = require('./routes/courses.js');
 var grades = require('./routes/grades.js');
@@ -15,8 +13,6 @@ app.set('port', (process.env.PORT || 80));
 app.use(bodyParser.json());
 
 // Mount our routes behind /api/ prefix
-//app.use('/api', books);
-//app.use('/api', authors);
 app.use('/api', students);
 app.use('/api', courses);
 app.use('/api', grades);

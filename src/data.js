@@ -84,10 +84,10 @@ exports.getStudentById = function (id) {
 exports.addStudent = function (student) {
     var studentid = { "id": newIdFor(studentData) };
     var newstudent = {};
-    //merging with courseId and course object from Postman
+    //merging with student Id and student object from Postman
     for (var key in studentid) newstudent[key] = studentid[key];
     for (var key in student) newstudent[key] = student[key];
-    //adding new course
+    //adding new student
     studentData.push(newstudent);
 }
 //-----------------------------------------------------------------------------------------
@@ -108,7 +108,7 @@ exports.updateStudentById = function (id, newcontent) {
     var autofill = { "id": id };
     //final object
     var newstudent = {};
-    //merging with courseId and grade from Postman
+    //merging with id and newcontent from Postman
     for (var key in autofill) newstudent[key] = autofill[key];
     for (var key in newcontent) newstudent[key] = newcontent[key];
     //location of object in array
@@ -140,7 +140,7 @@ exports.getCourseById = function (id) {
 exports.addCourse = function (course) {
     var courseid = { "id": newIdFor(courseData) };
     var newcourse = {};
-    //merging with courseId and course object from Postman
+    //merging with course Id and course object from Postman
     for (var key in courseid) newcourse[key] = courseid[key];
     for (var key in course) newcourse[key] = course[key];
     //adding new course
@@ -164,7 +164,7 @@ exports.updateCourseById = function (id, newcontent) {
     var autofill = { "id": id };
     //final object
     var newcourse = {};
-    //merging with courseId and grade from Postman
+    //merging with id and newcontent from Postman
     for (var key in autofill) newcourse[key] = autofill[key];
     for (var key in newcontent) newcourse[key] = newcontent[key];
     //location of object in array
