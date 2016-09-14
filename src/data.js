@@ -150,3 +150,13 @@ exports.getGradeByGradeId = function (userid, gradeid) {
         });
     //return gradeData;
 }
+
+exports.removeGradeById = function (id) {
+    var obj_position = null;
+    gradeData.forEach(function (grade, index) {
+        if (grade.id == id) {
+            obj_position = index;
+        }
+    });
+    gradeData.splice(obj_position, 1);
+}

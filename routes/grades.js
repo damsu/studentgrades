@@ -20,6 +20,11 @@ router.route('/students/:userid/grades/:gradeid')
     .get(function (req, res, next) {
         // the id parameter is available at req.params        
         res.json(data.getGradeByGradeId(req.params.userid, req.params.gradeid));
-    });
+    })
+
+    .delete(function (req, res, next) {
+    // the id parameter is available at req.params        
+    res.json(data.removeGradeById(req.params.gradeid));
+});
 
 module.exports = router;
