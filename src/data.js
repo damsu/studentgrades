@@ -131,7 +131,7 @@ exports.getAllCourses = function () {
 //-----------------------------------------------------------------------------------------
 exports.getCourseById = function (id) {
     return courseData.filter(function (course) {
-        if (course.studentId == id) {
+        if (course.id == id) {
             return course;
         }
     });
