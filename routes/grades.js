@@ -14,6 +14,7 @@ router.route('/students/:userid/grades')
 
 .post(function (req, res, next) {    
     res.json(data.addGrade(req.params.userid, req.body)); //testable by sending object with courseId and grade
+    res.sendStatus(201);
 });
 
 router.route('/students/:userid/grades/:gradeid')
