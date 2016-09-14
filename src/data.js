@@ -82,7 +82,13 @@ exports.getStudentById = function (id) {
 }
 //-----------------------------------------------------------------------------------------
 exports.addStudent = function (student) {
-    studentData.push(student);
+    var studentid = { "id": newIdFor(studentData) };
+    var newstudent = {};
+    //merging with courseId and course object from Postman
+    for (var key in studentid) newstudent[key] = studentid[key];
+    for (var key in student) newstudent[key] = student[key];
+    //adding new course
+    studentData.push(newstudent);
 }
 //-----------------------------------------------------------------------------------------
 exports.removeStudentById = function (id) {
@@ -98,6 +104,13 @@ exports.removeStudentById = function (id) {
 }
 //-----------------------------------------------------------------------------------------
 exports.updateStudentById = function (id, newcontent) {
+    //values that are not updatable
+    var autofill = { "id": id };
+    //final object
+    var newstudent = {};
+    //merging with courseId and grade from Postman
+    for (var key in autofill) newstudent[key] = autofill[key];
+    for (var key in newcontent) newstudent[key] = newcontent[key];
     //location of object in array
     var obj_position = null;
     studentData.forEach(function (student, index) {
@@ -147,6 +160,13 @@ exports.removeCourseById = function (id) {
 }
 //-----------------------------------------------------------------------------------------
 exports.updateCourseById = function (id, newcontent) {
+    //values that are not updatable
+    var autofill = { "id": id };
+    //final object
+    var newcourse = {};
+    //merging with courseId and grade from Postman
+    for (var key in autofill) newcourse[key] = autofill[key];
+    for (var key in newcontent) newcourse[key] = newcontent[key];
     //location of object in array
     var obj_position = null;
     courseData.forEach(function (course, index) {
@@ -155,7 +175,7 @@ exports.updateCourseById = function (id, newcontent) {
         }
     });
     //replacement of object
-    courseData.splice(obj_position, 1, newcontent);
+    courseData.splice(obj_position, 1, newcourse);
 }
 ///////////////////////////////////////////////////////////////////////////////////////////
 //Grades
