@@ -30,6 +30,11 @@ router.route('/students/:userid/grades/:gradeid')
     .delete(function (req, res, next) {
     // the id parameter is available at req.params        
     res.json(data.removeGradeById(req.params.gradeid));
+    })
+
+    .put(function (req, res, next) {
+    res.json(data.updateGradeById(req.params.userid, req.params.gradeid, req.body));
+    res.send("update grade");
 });
 
 module.exports = router;

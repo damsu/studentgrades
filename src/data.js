@@ -168,3 +168,17 @@ exports.addGrade = function (id, grade) {
     for (var key in grade) newgrade[key] = grade[key];
     gradeData.push(newgrade);
 }
+
+exports.updateGradeById = function (userid, gradeid, grade) {
+    var autofill = { "id": gradeid, "studentId": userid };
+    var newgrade = {};
+    for (var key in autofill) newgrade[key] = autofill[key];
+    for (var key in grade) newgrade[key] = grade[key];
+    var obj_position = null;
+    gradeData.forEach(function (grade, index) {
+        if (grade.id == gradeid) {
+            obj_position = index;
+        }
+    });
+    gradeData.splice(obj_position, 1, newgrade);
+}
